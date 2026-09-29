@@ -1,0 +1,44 @@
+{
+  "name": "genpark-workplace-goal-to-artifact-dag-orchestrator-skill",
+  "version": "1.0.0",
+  "description": "Enterprise Work Agent Goal-to-Artifact DAG Pipeline (inspired by WorkBuddy, Tencent Docs, WeChat Work Multi-Agent). Decomposes high-level business objectives into topological sub-tasks and directly synthesizes final deliverables: financial spreadsheets, executive presentations, and analytical reports.",
+  "tools": [
+    {
+      "name": "orchestrate_workplace_artifacts",
+      "description": "Decompose enterprise goals into multi-agent DAGs, synthesize spreadsheets, generate executive presentation slide decks, and bundle final deliverables.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "decompose_goal_to_dag",
+              "compile_spreadsheet_model",
+              "compile_presentation_deck",
+              "deliver_executive_artifact_bundle"
+            ],
+            "description": "Workplace artifact action."
+          },
+          "goal_title": {
+            "type": "string",
+            "description": "Enterprise goal title (e.g. 'Q3 SaaS Revenue & Competitor Analysis')."
+          },
+          "sheets_data": {
+            "type": "object",
+            "description": "Tabular sheets data definition."
+          },
+          "slides_data": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "description": "Slide decks content array."
+          }
+        },
+        "required": [
+          "action"
+        ]
+      }
+    }
+  ]
+}
